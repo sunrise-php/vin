@@ -1,0 +1,27 @@
+{
+	"name": "sunrise/vin",
+	"description": "Sunrise VIN",
+	"keywords": ["fenric", "sunrise", "vin"],
+	"homepage": "https://github.com/sunrise-php/vin",
+	"license": "MIT",
+	"authors": [{
+		"name": "Anatoly Fenric",
+		"email": "anatoly@fenric.ru",
+		"homepage": "https://anatoly.fenric.ru/"
+	}],
+	"require": {
+		"php": ">=7.2.0"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^7.2"
+	},
+	"autoload": {
+		"files": [
+			"data/manufacturers.php",
+			"data/regions.php"
+		],
+		"psr-4": {
+			"Sunrise\\Vin\\": "src/"
+		}
+	}
+}
