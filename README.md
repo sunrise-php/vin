@@ -1,7 +1,5 @@
 # Sunrise VIN
 
-> Vehicle Identification Number
-
 [![Build Status](https://api.travis-ci.com/sunrise-php/vin.svg?branch=master)](https://travis-ci.com/sunrise-php/vin)
 [![CodeFactor](https://www.codefactor.io/repository/github/sunrise-php/vin/badge)](https://www.codefactor.io/repository/github/sunrise-php/vin)
 [![Latest Stable Version](https://poser.pugx.org/sunrise/vin/v/stable)](https://packagist.org/packages/sunrise/vin)
@@ -34,3 +32,9 @@ $vin->getRegion(); // returns "Europe"
 $vin->getCountry(); // returns "Germany"
 $vin->getManufacturer(); // returns "Volkswagen"
 ```
+
+## Useful links
+
+https://en.wikipedia.org/wiki/Vehicle_identification_number
+https://en.wikibooks.org/wiki/Vehicle_Identification_Numbers_(VIN_codes)
+https://en.wikibooks.org/wiki/Vehicle_Identification_Numbers_(VIN_codes)/World_Manufacturer_Identifier_(WMI)
