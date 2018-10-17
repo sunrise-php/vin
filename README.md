@@ -6,13 +6,13 @@
 [![Total Downloads](https://poser.pugx.org/sunrise/vin/downloads)](https://packagist.org/packages/sunrise/vin)
 [![License](https://poser.pugx.org/sunrise/vin/license)](https://packagist.org/packages/sunrise/vin)
 
-## INSTALLATION
+## Installation
 
 ```
 composer require sunrise/vin
 ```
 
-## USAGE
+## Usage
 
 ```php
 try
