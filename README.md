@@ -17,11 +17,11 @@ composer require sunrise/vin
 ```php
 try
 {
-  $vin = new \Sunrise\Vin\Vin('wvwzzz1kz6w612305');
+    $vin = new \Sunrise\Vin\Vin('wvwzzz1kz6w612305');
 }
 catch (\InvalidArgumentException $e)
 {
-  // It's not a valid VIN
+    // It's not a valid VIN
 }
 
 $vin->getVin(); // returns "WVWZZZ1KZ6W612305"
