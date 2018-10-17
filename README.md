@@ -1,4 +1,4 @@
-# Sunrise VIN
+# Sunrise VIN (Vehicle Identification Number)
 
 [![Build Status](https://api.travis-ci.com/sunrise-php/vin.svg?branch=master)](https://travis-ci.com/sunrise-php/vin)
 [![CodeFactor](https://www.codefactor.io/repository/github/sunrise-php/vin/badge)](https://www.codefactor.io/repository/github/sunrise-php/vin)
@@ -16,7 +16,7 @@
 composer require sunrise/vin
 ```
 
-## Usage
+## How to use
 
 ```php
 try
