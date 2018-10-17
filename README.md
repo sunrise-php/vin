@@ -5,7 +5,10 @@
 [![Latest Stable Version](https://poser.pugx.org/sunrise/vin/v/stable)](https://packagist.org/packages/sunrise/vin)
 [![Total Downloads](https://poser.pugx.org/sunrise/vin/downloads)](https://packagist.org/packages/sunrise/vin)
 [![License](https://poser.pugx.org/sunrise/vin/license)](https://packagist.org/packages/sunrise/vin)
-[![SymfonyInsight](https://insight.symfony.com/projects/62616a9e-4984-4320-9759-42238630d43a/small.svg)](https://insight.symfony.com/projects/62616a9e-4984-4320-9759-42238630d43a)
+
+## Awards
+
+[![SymfonyInsight](https://insight.symfony.com/projects/62616a9e-4984-4320-9759-42238630d43a/big.svg)](https://insight.symfony.com/projects/62616a9e-4984-4320-9759-42238630d43a)
 
 ## Installation
 
