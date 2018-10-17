@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Sunrise\Vin\Vin;
 use Sunrise\Vin\VinInterface;
 
-class StreamTest extends TestCase
+class VinTest extends TestCase
 {
 	public const TEST_VIN = 'WVWZZZ1KZ6W612305';
 
