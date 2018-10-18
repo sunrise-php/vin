@@ -1,4 +1,4 @@
-# :car: Sunrise VIN (Vehicle Identification Number)
+# :blue_car: Sunrise VIN (Vehicle Identification Number)
 
 [![Build Status](https://api.travis-ci.com/sunrise-php/vin.svg?branch=master)](https://travis-ci.com/sunrise-php/vin)
 [![CodeFactor](https://www.codefactor.io/repository/github/sunrise-php/vin/badge)](https://www.codefactor.io/repository/github/sunrise-php/vin)
