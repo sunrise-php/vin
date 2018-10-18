@@ -23,7 +23,7 @@ interface VinInterface
 	/**
 	 * Constructor of the class
 	 *
-	 * @var string $value
+	 * @param string $value
 	 *
 	 * @throws \InvalidArgumentException If the given value is not a valid VIN
 	 */
