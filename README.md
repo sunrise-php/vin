@@ -37,6 +37,10 @@ $vin->getCountry(); // returns "Germany"
 $vin->getManufacturer(); // returns "Volkswagen"
 ```
 
+## Api documentation
+
+https://phpdoc.fenric.ru/
+
 ## Useful links
 
 https://en.wikipedia.org/wiki/Vehicle_identification_number<br>
