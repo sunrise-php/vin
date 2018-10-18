@@ -14,8 +14,6 @@ namespace Sunrise\Vin;
 /**
  * List of all regions
  *
- * @package Sunrise\Vin
- *
  * @link https://en.wikipedia.org/wiki/Vehicle_identification_number#Country_or_Region_codes
  * @link https://en.wikibooks.org/wiki/Vehicle_Identification_Numbers_(VIN_codes)/World_Manufacturer_Identifier_(WMI)#WMI_Regions
  */
