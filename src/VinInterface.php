@@ -14,8 +14,6 @@ namespace Sunrise\Vin;
 /**
  * Vehicle Identification Number
  *
- * @package Sunrise\Vin
- *
  * @link https://en.wikipedia.org/wiki/Vehicle_identification_number
  * @link https://en.wikibooks.org/wiki/Vehicle_Identification_Numbers_(VIN_codes)
  */
@@ -25,42 +23,65 @@ interface VinInterface
 	/**
 	 * Constructor of the class
 	 *
+	 * @var string $value
+	 *
 	 * @throws \InvalidArgumentException If the given value is not a valid VIN
 	 */
 	public function __construct(string $value);
 
 	/**
 	 * Gets the VIN
+	 *
+	 * @return string
 	 */
 	public function getVin() : string;
 
 	/**
 	 * Gets WMI from the VIN
+	 *
+	 * @return string
 	 */
 	public function getWmi() : string;
 
 	/**
 	 * Gets VDS from the VIN
+	 *
+	 * @return string
 	 */
 	public function getVds() : string;
 
 	/**
 	 * Gets VIS from the VIN
+	 *
+	 * @return string
 	 */
 	public function getVis() : string;
 
 	/**
 	 * Gets a region from the VIN
+	 *
+	 * @return string
 	 */
 	public function getRegion() : string;
 
 	/**
 	 * Gets a country from the VIN
+	 *
+	 * @return null|string
 	 */
 	public function getCountry() : ?string;
 
 	/**
 	 * Gets a manufacturer from the VIN
+	 *
+	 * @return null|string
 	 */
 	public function getManufacturer() : ?string;
+
+	/**
+	 * Converts the VIN to array
+	 *
+	 * @return array
+	 */
+	public function toArray() : array;
 }

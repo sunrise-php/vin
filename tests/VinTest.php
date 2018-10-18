@@ -90,6 +90,21 @@ class VinTest extends TestCase
 		$this->assertEquals('Volkswagen', $vin->getManufacturer());
 	}
 
+	public function testToArray()
+	{
+		$vin = new Vin(self::TEST_VIN);
+
+		$this->assertEquals([
+			'vin' => self::TEST_VIN,
+			'wmi' => \substr(self::TEST_VIN, 0, 3),
+			'vds' => \substr(self::TEST_VIN, 3, 6),
+			'vis' => \substr(self::TEST_VIN, 9, 8),
+			'region' => 'Europe',
+			'country' => 'Germany',
+			'manufacturer' => 'Volkswagen',
+		], $vin->toArray());
+	}
+
 	public function vinForbiddenCharactersProvider()
 	{
 		return [

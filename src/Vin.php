@@ -19,8 +19,6 @@ use const Sunrise\Vin\REGIONS;
 
 /**
  * Vehicle Identification Number
- *
- * @package Sunrise\Vin
  */
 class Vin implements VinInterface
 {
@@ -150,10 +148,25 @@ class Vin implements VinInterface
 	{
 		$wmi = $this->getWmi();
 
-		$first = \substr($wmi, 0, 3);
+		$long = \substr($wmi, 0, 3);
+		$short = \substr($wmi, 0, 2);
 
-		$second = \substr($wmi, 0, 2);
+		return MANUFACTURERS[$long] ?? MANUFACTURERS[$short] ?? null;
+	}
 
-		return MANUFACTURERS[$first] ?? MANUFACTURERS[$second] ?? null;
+	/**
+	 * {@inheritDoc}
+	 */
+	public function toArray() : array
+	{
+		return [
+			'vin' => $this->getVin(),
+			'wmi' => $this->getWmi(),
+			'vds' => $this->getVds(),
+			'vis' => $this->getVis(),
+			'region' => $this->getRegion(),
+			'country' => $this->getCountry(),
+			'manufacturer' => $this->getManufacturer(),
+		];
 	}
 }
