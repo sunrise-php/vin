@@ -309,7 +309,6 @@ const MANUFACTURERS = [
 	'YTN' => 'Saab NEVS',
 	'YT9' => 'Koenigsegg',
 	'007' => 'Koenigsegg',
-	'YT9' => 'Carvia',
 	'034' => 'Carvia',
 	'YU7' => 'Husaberg (motorcycles)',
 	'YV1' => 'Volvo Cars',
