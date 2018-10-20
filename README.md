@@ -46,3 +46,6 @@ https://phpdoc.fenric.ru/
 https://en.wikipedia.org/wiki/Vehicle_identification_number<br>
 https://en.wikibooks.org/wiki/Vehicle_Identification_Numbers_(VIN_codes)<br>
 https://en.wikibooks.org/wiki/Vehicle_Identification_Numbers_(VIN_codes)/World_Manufacturer_Identifier_(WMI)
+
+###### &nbsp;
+###### With :heart: for you
