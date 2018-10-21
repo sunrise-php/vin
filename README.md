@@ -1,4 +1,4 @@
-# Sunrise VIN (Vehicle Identification Number)
+# Simple VIN decoder for PHP 7.2+ based on ISO-3779
 
 [![Build Status](https://api.travis-ci.com/sunrise-php/vin.svg?branch=master)](https://travis-ci.com/sunrise-php/vin)
 [![CodeFactor](https://www.codefactor.io/repository/github/sunrise-php/vin/badge)](https://www.codefactor.io/repository/github/sunrise-php/vin)
@@ -46,8 +46,3 @@ https://phpdoc.fenric.ru/
 https://en.wikipedia.org/wiki/Vehicle_identification_number<br>
 https://en.wikibooks.org/wiki/Vehicle_Identification_Numbers_(VIN_codes)<br>
 https://en.wikibooks.org/wiki/Vehicle_Identification_Numbers_(VIN_codes)/World_Manufacturer_Identifier_(WMI)
-
-&nbsp;
-&nbsp;
-
-With :heart: for you
