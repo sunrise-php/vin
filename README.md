@@ -1,5 +1,6 @@
 # Simple VIN decoder for PHP 7.2+ based on ISO-3779
 
+[![Gitter](https://badges.gitter.im/sunrise-php/support.png)](https://gitter.im/sunrise-php/support)
 [![Build Status](https://api.travis-ci.com/sunrise-php/vin.svg?branch=master)](https://travis-ci.com/sunrise-php/vin)
 [![CodeFactor](https://www.codefactor.io/repository/github/sunrise-php/vin/badge)](https://www.codefactor.io/repository/github/sunrise-php/vin)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sunrise-php/vin/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sunrise-php/vin/?branch=master)
