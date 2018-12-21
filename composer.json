@@ -10,7 +10,7 @@
 		"homepage": "https://anatoly.fenric.ru/"
 	}],
 	"require": {
-		"php": "^7.2"
+		"php": "^7.1"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "7.4.3"
