@@ -1,7 +1,7 @@
 {
     "name": "sunrise/vin",
-    "description": "Sunrise VIN",
-    "keywords": ["fenric", "sunrise", "vin"],
+    "description": "Simple VIN decoder for PHP 7.1+ based on ISO-3779",
+    "keywords": ["fenric", "sunrise", "vin", "decoder", "iso-3779"],
     "homepage": "https://github.com/sunrise-php/vin",
     "license": "MIT",
     "authors": [{
