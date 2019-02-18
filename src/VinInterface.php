@@ -19,16 +19,6 @@ namespace Sunrise\Vin;
  */
 interface VinInterface
 {
-
-	/**
-	 * Constructor of the class
-	 *
-	 * @param string $value
-	 *
-	 * @throws \InvalidArgumentException If the given value is not a valid VIN
-	 */
-	public function __construct(string $value);
-
 	/**
 	 * Gets the VIN
 	 *
