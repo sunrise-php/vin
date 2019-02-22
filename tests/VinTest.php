@@ -20,6 +20,7 @@ class VinTest extends TestCase
 	public function testVinLessThan17Characters()
 	{
 		$this->expectException(\InvalidArgumentException::class);
+		$this->expectExceptionMessage('The value "AAAAAAAAAAAAAAAA" is not a valid VIN');
 
 		new Vin(\str_repeat('A', 16));
 	}
@@ -27,6 +28,7 @@ class VinTest extends TestCase
 	public function testVinMoreThan17Characters()
 	{
 		$this->expectException(\InvalidArgumentException::class);
+		$this->expectExceptionMessage('The value "AAAAAAAAAAAAAAAAAA" is not a valid VIN');
 
 		new Vin(\str_repeat('A', 18));
 	}
@@ -37,6 +39,7 @@ class VinTest extends TestCase
 	public function testVinWithForbiddenCharacters($value)
 	{
 		$this->expectException(\InvalidArgumentException::class);
+		$this->expectExceptionMessage(\sprintf('The value "AAAAAAAAAAAAAAAA%s" is not a valid VIN', $value));
 
 		new Vin(\str_repeat('A', 16) . $value);
 	}
