@@ -1,8 +1,7 @@
 # Simple VIN decoder for PHP 7.1+ based on ISO-3779
 
 [![Gitter](https://badges.gitter.im/sunrise-php/support.png)](https://gitter.im/sunrise-php/support)
-[![Build Status](https://api.travis-ci.com/sunrise-php/vin.svg?branch=master)](https://travis-ci.com/sunrise-php/vin)
-[![CodeFactor](https://www.codefactor.io/repository/github/sunrise-php/vin/badge)](https://www.codefactor.io/repository/github/sunrise-php/vin)
+[![Build Status](https://api.travis-ci.org/sunrise-php/vin.svg?branch=master)](https://travis-ci.org/sunrise-php/vin)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sunrise-php/vin/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sunrise-php/vin/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/sunrise-php/vin/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/sunrise-php/vin/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/sunrise/vin/v/stable?format=flat)](https://packagist.org/packages/sunrise/vin)
@@ -11,15 +10,17 @@
 
 ## Installation
 
-```
+```bash
 composer require sunrise/vin
 ```
 
 ## How to use
 
 ```php
+use Sunrise\Vin\Vin;
+
 try {
-    $vin = new \Sunrise\Vin\Vin('wvwzzz1kz6w612305');
+    $vin = new Vin('wvwzzz1kz6w612305');
 } catch (\InvalidArgumentException $e) {
     // It's not a valid VIN
 }
