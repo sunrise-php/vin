@@ -19,6 +19,7 @@ namespace Sunrise\Vin;
  */
 interface VinInterface
 {
+
 	/**
 	 * Gets the VIN
 	 *
