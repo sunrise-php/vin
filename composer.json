@@ -4,11 +4,18 @@
     "keywords": ["fenric", "sunrise", "vin", "decoder", "iso-3779"],
     "homepage": "https://github.com/sunrise-php/vin",
     "license": "MIT",
-    "authors": [{
-        "name": "Anatoly Fenric",
-        "email": "anatoly@fenric.ru",
-        "homepage": "https://anatoly.fenric.ru/"
-    }],
+    "authors": [
+        {
+            "name": "Anatoly Fenric",
+            "email": "anatoly@fenric.ru",
+            "homepage": "https://anatoly.fenric.ru/"
+        },
+        {
+            "name": "李昀陞 (Peter)",
+            "email": "peter279k@gmail.com",
+            "homepage": "https://github.com/peter279k"
+        }
+    ],
     "require": {
         "php": "^7.1"
     },
