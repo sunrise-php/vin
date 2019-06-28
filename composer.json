@@ -25,7 +25,8 @@
     "autoload": {
         "files": [
             "data/manufacturers.php",
-            "data/regions.php"
+            "data/regions.php",
+            "data/years.php"
         ],
         "psr-4": {
             "Sunrise\\Vin\\": "src/"

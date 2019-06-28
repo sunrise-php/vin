@@ -70,6 +70,13 @@ interface VinInterface
 	public function getManufacturer() : ?string;
 
 	/**
+	 * Gets a model year from the VIN
+	 *
+	 * @return null|string
+	 */
+	public function getModelYear() : ? string;
+
+	/**
 	 * Converts the VIN to array
 	 *
 	 * @return array

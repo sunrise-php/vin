@@ -157,6 +157,23 @@ class Vin implements VinInterface
 	/**
 	 * {@inheritDoc}
 	 */
+	public function getModelYear() : ? string
+	{
+		$range = \substr($this->vin, 6, 1);
+		$year_code = \substr($this->vin, 9, 1);
+
+		// As per the algorithm, we have to check the seventh position if it is
+		// alphapet that's mean it refers to a year in the range 2010–2039.
+		if (ctype_alpha($range)) {
+			return YEARS[1][$year_code] ?? YEARS[1][$year_code] ?? null;
+		}
+
+		return YEARS[0][$year_code] ?? YEARS[0][$year_code] ?? null;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
 	public function toArray() : array
 	{
 		return [
@@ -167,6 +184,7 @@ class Vin implements VinInterface
 			'region' => $this->getRegion(),
 			'country' => $this->getCountry(),
 			'manufacturer' => $this->getManufacturer(),
+			'model_year' => $this->getModelYear(),
 		];
 	}
 }
