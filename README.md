@@ -32,6 +32,7 @@ $vin->getVis(); // returns "6W612305"
 $vin->getRegion(); // returns "Europe"
 $vin->getCountry(); // returns "Germany"
 $vin->getManufacturer(); // returns "Volkswagen"
+$vin->getModelYear(); // returns "2006"
 ```
 
 ## Api documentation
