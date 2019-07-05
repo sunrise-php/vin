@@ -1,4 +1,4 @@
-# Sunrise // Simple VIN decoder for PHP 7.1+ based on ISO-3779
+## Sunrise // Simple VIN decoder for PHP 7.1+ based on ISO-3779
 
 [![Gitter](https://badges.gitter.im/sunrise-php/support.png)](https://gitter.im/sunrise-php/support)
 [![Build Status](https://scrutinizer-ci.com/g/sunrise-php/vin/badges/build.png?b=master)](https://scrutinizer-ci.com/g/sunrise-php/vin/build-status/master)
