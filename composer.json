@@ -1,9 +1,15 @@
 {
     "name": "sunrise/vin",
-    "description": "Simple VIN decoder for PHP 7.1+ based on ISO-3779",
-    "keywords": ["fenric", "sunrise", "vin", "decoder", "iso-3779"],
     "homepage": "https://github.com/sunrise-php/vin",
+    "description": "Sunrise // Simple VIN decoder for PHP 7.1+ based on ISO-3779",
     "license": "MIT",
+    "keywords": [
+        "fenric",
+        "sunrise",
+        "vin",
+        "decoder",
+        "iso-3779"
+    ],
     "authors": [
         {
             "name": "Anatoly Fenric",
@@ -14,18 +20,26 @@
             "name": "李昀陞 (Peter)",
             "email": "peter279k@gmail.com",
             "homepage": "https://github.com/peter279k"
+        },
+        {
+            "name": "Saud bin Mohammed",
+            "email": "saud@samaphp.com",
+            "homepage": "https://github.com/samaphp"
         }
     ],
     "require": {
         "php": "^7.1"
     },
     "require-dev": {
-        "phpunit/phpunit": "7.5.6"
+        "phpunit/phpunit": "7.5.6",
+        "phpunit/php-code-coverage": "6.1.4",
+        "sunrise/coding-standard": "^1.0"
     },
     "autoload": {
         "files": [
             "data/manufacturers.php",
-            "data/regions.php"
+            "data/regions.php",
+            "data/years.php"
         ],
         "psr-4": {
             "Sunrise\\Vin\\": "src/"
@@ -33,6 +47,7 @@
     },
     "scripts": {
         "test": [
+            "phpcs",
             "phpunit --colors=always --coverage-text"
         ]
     }
