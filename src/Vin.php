@@ -215,7 +215,7 @@ class Vin implements VinInterface
         }
 
         foreach (REGIONS[$this->wmi[0]]['countries'] as $chars => $title) {
-            if (! (false === strpbrk($this->wmi[1], $chars))) {
+            if (! (false === strpbrk($this->wmi[1], (string) $chars))) {
                 return $title;
             }
         }
