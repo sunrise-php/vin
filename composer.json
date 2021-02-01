@@ -1,14 +1,16 @@
 {
     "name": "sunrise/vin",
     "homepage": "https://github.com/sunrise-php/vin",
-    "description": "Sunrise // Simple VIN decoder for PHP 7.1+ based on ISO-3779",
+    "description": "Simple VIN decoder for PHP 7.1+ based on ISO-3779",
     "license": "MIT",
     "keywords": [
         "fenric",
         "sunrise",
         "vin",
         "decoder",
-        "iso-3779"
+        "iso-3779",
+        "php7",
+        "php8"
     ],
     "authors": [
         {
@@ -28,11 +30,10 @@
         }
     ],
     "require": {
-        "php": "^7.1"
+        "php": "^7.1|^8.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "7.5.13",
-        "phpunit/php-code-coverage": "6.1.4",
+        "phpunit/phpunit": "7.5.20|9.5.0",
         "sunrise/coding-standard": "1.0.0"
     },
     "autoload": {
@@ -47,8 +48,8 @@
     },
     "scripts": {
         "test": [
-            "phpcs",
-            "phpunit --colors=always --coverage-text"
+            "phpunit --colors=always --coverage-text",
+            "phpcs"
         ]
     }
 }
