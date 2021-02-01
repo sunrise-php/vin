@@ -1,11 +1,11 @@
-## Sunrise // Simple VIN decoder for PHP 7.1+ based on ISO-3779
+## Simple VIN decoder for PHP 7.1+ (incl. PHP 8) based on ISO-3779
 
 [![Gitter](https://badges.gitter.im/sunrise-php/support.png)](https://gitter.im/sunrise-php/support)
-[![Build Status](https://scrutinizer-ci.com/g/sunrise-php/vin/badges/build.png?b=master)](https://scrutinizer-ci.com/g/sunrise-php/vin/build-status/master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sunrise-php/vin/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sunrise-php/vin/?branch=master)
+[![Build Status](https://circleci.com/gh/sunrise-php/vin.svg?style=shield)](https://circleci.com/gh/sunrise-php/vin)
 [![Code Coverage](https://scrutinizer-ci.com/g/sunrise-php/vin/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/sunrise-php/vin/?branch=master)
-[![Latest Stable Version](https://img.shields.io/packagist/v/sunrise/vin.svg?label=version)](https://packagist.org/packages/sunrise/vin)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sunrise-php/vin/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sunrise-php/vin/?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/sunrise/vin.svg?label=downloads)](https://packagist.org/packages/sunrise/vin)
+[![Latest Stable Version](https://img.shields.io/packagist/v/sunrise/vin.svg?label=version)](https://packagist.org/packages/sunrise/vin)
 [![License](https://img.shields.io/packagist/l/sunrise/vin.svg?label=license)](https://packagist.org/packages/sunrise/vin)
 
 ## Installation
@@ -23,7 +23,7 @@ use Sunrise\Vin\Vin;
 try {
     $vin = new Vin('WVWZZZ1KZ6W612305');
 } catch (InvalidArgumentException $e) {
-    // It's not a valid VIN
+    // It isn't a valid VIN...
 }
 
 $vin->getVin(); // returns "WVWZZZ1KZ6W612305"
