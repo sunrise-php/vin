@@ -96,11 +96,4 @@ interface VinInterface
      * @since 1.0.13
      */
     public function getModelYear() : array;
-
-    /**
-     * Converts the VIN to array
-     *
-     * @return array
-     */
-    public function toArray() : array;
 }
