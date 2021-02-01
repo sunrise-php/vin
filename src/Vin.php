@@ -33,48 +33,64 @@ class Vin implements VinInterface
 {
 
     /**
-     * Regular expression for a VIN parsing (ISO 3779)
+     * Regular expression for a VIN parsing/validation (ISO 3779)
      *
      * @var string
      */
     public const REGEX = '/^(?<wmi>[0-9A-HJ-NPR-Z]{3})(?<vds>[0-9A-HJ-NPR-Z]{6})(?<vis>[0-9A-HJ-NPR-Z]{8})$/';
 
     /**
+     * The VIN code
+     *
      * @var string
      */
     private $vin;
 
     /**
+     * World manufacturer identifier
+     *
      * @var string
      */
     private $wmi;
 
     /**
+     * Vehicle descriptor section
+     *
      * @var string
      */
     private $vds;
 
     /**
+     * Vehicle identifier section
+     *
      * @var string
      */
     private $vis;
 
     /**
+     * Vehicle region
+     *
      * @var null|string
      */
     private $region;
 
     /**
+     * Vehicle country
+     *
      * @var null|string
      */
     private $country;
 
     /**
+     * Vehicle manufacturer
+     *
      * @var null|string
      */
     private $manufacturer;
 
     /**
+     * Vehicle model year
+     *
      * @var int[]
      */
     private $modelYear;
@@ -91,7 +107,7 @@ class Vin implements VinInterface
         // The given VIN must be in upper case...
         $value = strtoupper($value);
 
-        if (! preg_match(self::REGEX, $value, $match)) {
+        if (!preg_match(self::REGEX, $value, $match)) {
             throw new InvalidArgumentException(
                 sprintf('The value "%s" is not a valid VIN', $value)
             );
@@ -104,10 +120,10 @@ class Vin implements VinInterface
         $this->vis = $match['vis'];
 
         // Parsed values
-        $this->region = $this->identifyRegion();
-        $this->country = $this->identifyCountry();
-        $this->manufacturer = $this->identifyManufacturer();
-        $this->modelYear = $this->identifyModelYear();
+        $this->region = $this->determineRegion();
+        $this->country = $this->determineCountry();
+        $this->manufacturer = $this->determineManufacturer();
+        $this->modelYear = $this->determineModelYear();
     }
 
     /**
@@ -175,7 +191,9 @@ class Vin implements VinInterface
     }
 
     /**
-     * {@inheritDoc}
+     * Converts the object to array
+     *
+     * @return array
      */
     public function toArray() : array
     {
@@ -192,31 +210,30 @@ class Vin implements VinInterface
     }
 
     /**
+     * Tries to determine vehicle region
+     *
      * @return null|string
      */
-    private function identifyRegion() : ?string
+    private function determineRegion() : ?string
     {
-        // undefined region...
-        if (! isset(REGIONS[$this->wmi[0]])) {
-            return null;
-        }
-
         return REGIONS[$this->wmi[0]]['region'] ?? null;
     }
 
     /**
+     * Tries to determine vehicle country
+     *
      * @return null|string
      */
-    private function identifyCountry() : ?string
+    private function determineCountry() : ?string
     {
-        // undefined region...
-        if (! isset(REGIONS[$this->wmi[0]])) {
+        $countries = REGIONS[$this->wmi[0]]['countries'] ?? null;
+        if (null === $countries) {
             return null;
         }
 
-        foreach (REGIONS[$this->wmi[0]]['countries'] as $chars => $title) {
-            if (! (false === strpbrk($this->wmi[1], (string) $chars))) {
-                return $title;
+        foreach ($countries as $chars => $name) {
+            if (!(false === strpbrk($this->wmi[1], (string) $chars))) {
+                return $name;
             }
         }
 
@@ -224,24 +241,28 @@ class Vin implements VinInterface
     }
 
     /**
+     * Tries to determine vehicle manufacturer
+     *
      * @return null|string
      */
-    private function identifyManufacturer() : ?string
+    private function determineManufacturer() : ?string
     {
         return MANUFACTURERS[$this->wmi] ?? MANUFACTURERS[$this->wmi[0] . $this->wmi[1]] ?? null;
     }
 
     /**
+     * Tries to determine vehicle model year(s)
+     *
      * @return int[]
      */
-    private function identifyModelYear() : array
+    private function determineModelYear() : array
     {
         $comingYear = (int) date('Y') + 1;
-        $certainYears = [];
+        $estimatedYears = [];
 
         foreach (YEARS as $year => $char) {
             if ($this->vis[0] === $char) {
-                $certainYears[] = $year;
+                $estimatedYears[] = $year;
             }
 
             if ($comingYear === $year) {
@@ -249,6 +270,6 @@ class Vin implements VinInterface
             }
         }
 
-        return $certainYears;
+        return $estimatedYears;
     }
 }
