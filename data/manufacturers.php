@@ -157,6 +157,7 @@ const MANUFACTURERS = [
     'PE3' => 'Mazda',
     'PL1' => 'Proton',
     'PNA' => 'NAZA (Peugeot)',
+    'R1N' => 'NIU',
     'RA1' => 'Steyr Trucks International FZE',
     'RFB' => 'Kymco',
     'RFG' => 'Sanyang SYM',
