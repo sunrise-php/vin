@@ -107,7 +107,7 @@ class VinTest extends TestCase
     {
         $vin = new Vin(self::TEST_VIN);
 
-        $this->assertEquals(self::TEST_VIN, $vin->getVin());
+        $this->assertSame(self::TEST_VIN, $vin->getVin());
     }
 
     /**
@@ -117,7 +117,7 @@ class VinTest extends TestCase
     {
         $vin = new Vin(self::TEST_VIN);
 
-        $this->assertEquals(\substr(self::TEST_VIN, 0, 3), $vin->getWmi());
+        $this->assertSame(\substr(self::TEST_VIN, 0, 3), $vin->getWmi());
     }
 
     /**
@@ -127,7 +127,7 @@ class VinTest extends TestCase
     {
         $vin = new Vin(self::TEST_VIN);
 
-        $this->assertEquals(\substr(self::TEST_VIN, 3, 6), $vin->getVds());
+        $this->assertSame(\substr(self::TEST_VIN, 3, 6), $vin->getVds());
     }
 
     /**
@@ -137,7 +137,7 @@ class VinTest extends TestCase
     {
         $vin = new Vin(self::TEST_VIN);
 
-        $this->assertEquals(\substr(self::TEST_VIN, 9, 8), $vin->getVis());
+        $this->assertSame(\substr(self::TEST_VIN, 9, 8), $vin->getVis());
     }
 
     /**
@@ -147,7 +147,7 @@ class VinTest extends TestCase
     {
         $vin = new Vin(self::TEST_VIN);
 
-        $this->assertEquals('Europe', $vin->getRegion());
+        $this->assertSame('Europe', $vin->getRegion());
     }
 
     /**
@@ -157,7 +157,7 @@ class VinTest extends TestCase
     {
         $vin = new Vin(self::TEST_VIN);
 
-        $this->assertEquals('Germany', $vin->getCountry());
+        $this->assertSame('Germany', $vin->getCountry());
     }
 
     /**
@@ -167,7 +167,7 @@ class VinTest extends TestCase
     {
         $vin = new Vin(self::TEST_VIN);
 
-        $this->assertEquals('Volkswagen', $vin->getManufacturer());
+        $this->assertSame('Volkswagen', $vin->getManufacturer());
     }
 
     /**
@@ -177,7 +177,7 @@ class VinTest extends TestCase
     {
         $vin = new Vin(self::TEST_VIN);
 
-        $this->assertEquals([2006], $vin->getModelYear());
+        $this->assertSame([2006], $vin->getModelYear());
     }
 
     /**
@@ -187,7 +187,7 @@ class VinTest extends TestCase
     {
         $vin = new Vin(self::TEST_VIN);
 
-        $this->assertEquals([
+        $this->assertSame([
             'vin' => self::TEST_VIN,
             'wmi' => \substr(self::TEST_VIN, 0, 3),
             'vds' => \substr(self::TEST_VIN, 3, 6),
@@ -248,7 +248,7 @@ class VinTest extends TestCase
     {
         $vin = new Vin(self::TEST_VIN_WITH_UNKNOWN_MODEL_YEAR);
 
-        $this->assertEquals([], $vin->getModelYear());
+        $this->assertSame([], $vin->getModelYear());
     }
 
     /**
@@ -258,7 +258,7 @@ class VinTest extends TestCase
     {
         $vin = new Vin(self::TEST_VIN_WITH_SINGLE_MODEL_YEAR);
 
-        $this->assertEquals([2006], $vin->getModelYear());
+        $this->assertSame([2006], $vin->getModelYear());
     }
 
     /**
@@ -268,7 +268,7 @@ class VinTest extends TestCase
     {
         $vin = new Vin(self::TEST_VIN_WITH_MULTIPLE_MODEL_YEAR);
 
-        $this->assertEquals([1980, 2010], $vin->getModelYear());
+        $this->assertSame([1980, 2010], $vin->getModelYear());
     }
 
     /**
@@ -278,6 +278,6 @@ class VinTest extends TestCase
     {
         $vin = new Vin(self::TEST_VIN_WITH_FUTURITY_MODEL_YEAR);
 
-        $this->assertEquals([2000], $vin->getModelYear());
+        $this->assertSame([2000], $vin->getModelYear());
     }
 }
