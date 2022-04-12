@@ -518,4 +518,13 @@ const MANUFACTURERS = [
     '9BW' => 'Volkswagen',
     '9FB' => 'Renault',
     'WB1' => 'BMW Motorrad of North America',
+
+    /**
+     * @see https://github.com/sunrise-php/vin/issues/70
+     */
+    'W1K' => 'Mercedes',
+    'W1V' => 'Mercedes',
+    'W1N' => 'Mercedes',
+    'WAP' => 'BMW',
+    'YAR' => 'Toyota',
 ];
