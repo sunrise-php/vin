@@ -14,7 +14,7 @@ namespace Sunrise\Vin;
 /**
  * List of all manufacturers
  *
- * @var array
+ * @var array<string, string>
  *
  * @link https://en.wikipedia.org/wiki/Vehicle_identification_number#List_of_common_WMI
  * @link https://en.wikibooks.org/wiki/Vehicle_Identification_Numbers_(VIN_codes)/World_Manufacturer_Identifier_(WMI)#List_of_all_WMIs

@@ -15,7 +15,7 @@ namespace Sunrise\Vin;
 /**
  * List of all model years
  *
- * @var array
+ * @var array<int, string>
  *
  * @link https://en.wikipedia.org/wiki/Vehicle_identification_number#Model_year_encoding
  * @link https://en.wikibooks.org/wiki/Vehicle_Identification_Numbers_(VIN_codes)/Model_year

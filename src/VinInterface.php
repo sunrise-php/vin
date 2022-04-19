@@ -24,16 +24,12 @@ interface VinInterface
     /**
      * Gets the VIN
      *
-     * The length of this string must be 17 characters.
-     *
      * @return string
      */
     public function getVin() : string;
 
     /**
      * Gets WMI (World Manufacturer Identifier) from the VIN
-     *
-     * The length of this string must be 3 characters.
      *
      * @return string
      */
@@ -42,16 +38,12 @@ interface VinInterface
     /**
      * Gets VDS (Vehicle Descriptor Section) from the VIN
      *
-     * The length of this string must be 6 characters.
-     *
      * @return string
      */
     public function getVds() : string;
 
     /**
      * Gets VIS (Vehicle Identifier Section) from the VIN
-     *
-     * The length of this string must be 8 characters.
      *
      * @return string
      */
@@ -60,40 +52,28 @@ interface VinInterface
     /**
      * Gets a region from the VIN
      *
-     * The region must be determined by the first character of the VIN.
-     *
-     * @return null|string
+     * @return string|null
      */
     public function getRegion() : ?string;
 
     /**
      * Gets a country from the VIN
      *
-     * The country must be determined by the second character of the VIN.
-     *
-     * @return null|string
+     * @return string|null
      */
     public function getCountry() : ?string;
 
     /**
      * Gets a manufacturer from the VIN
      *
-     * The manufacturer must be determined by the first 2 or 3 characters of the VIN.
-     *
-     * @return null|string
+     * @return string|null
      */
     public function getManufacturer() : ?string;
 
     /**
      * Gets a model year from the VIN
      *
-     * The model year must be determined by the tenth character of the VIN.
-     *
-     * NOTE! The model year may not be determined correctly.
-     *
-     * @return int[]
-     *
-     * @since 1.0.13
+     * @return list<int>
      */
     public function getModelYear() : array;
 }

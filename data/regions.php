@@ -14,7 +14,10 @@ namespace Sunrise\Vin;
 /**
  * List of all regions
  *
- * @var array
+ * @var array<string, array{
+ *        region: string,
+ *        countries: array<string, string>,
+ *      }>
  *
  * @link https://en.wikipedia.org/wiki/Vehicle_identification_number#Country_or_Region_codes
  * @link https://en.wikibooks.org/wiki/Vehicle_Identification_Numbers_(VIN_codes)/World_Manufacturer_Identifier_(WMI)#WMI_Regions
