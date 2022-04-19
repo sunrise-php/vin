@@ -27,6 +27,13 @@ use function strpbrk;
 use function strtoupper;
 
 /**
+ * Import constants
+ */
+use const Sunrise\Vin\MANUFACTURERS;
+use const Sunrise\Vin\REGIONS;
+use const Sunrise\Vin\YEARS;
+
+/**
  * Vehicle Identification Number
  */
 class Vin implements VinInterface
@@ -36,11 +43,13 @@ class Vin implements VinInterface
      * Regular expression for a VIN parsing/validation (ISO 3779)
      *
      * @var string
+     *
+     * @link https://www.iso.org/standard/52200.html
      */
     public const REGEX = '/^(?<wmi>[0-9A-HJ-NPR-Z]{3})(?<vds>[0-9A-HJ-NPR-Z]{6})(?<vis>[0-9A-HJ-NPR-Z]{8})$/';
 
     /**
-     * The VIN code
+     * The VIN value
      *
      * @var string
      */
@@ -70,28 +79,28 @@ class Vin implements VinInterface
     /**
      * Vehicle region
      *
-     * @var null|string
+     * @var string|null
      */
     private $region;
 
     /**
      * Vehicle country
      *
-     * @var null|string
+     * @var string|null
      */
     private $country;
 
     /**
      * Vehicle manufacturer
      *
-     * @var null|string
+     * @var string|null
      */
     private $manufacturer;
 
     /**
      * Vehicle model year
      *
-     * @var int[]
+     * @var list<int>
      */
     private $modelYear;
 
@@ -100,34 +109,34 @@ class Vin implements VinInterface
      *
      * @param string $value
      *
-     * @throws InvalidArgumentException If the given string is not a valid VIN.
+     * @throws InvalidArgumentException
+     *         If the given value isn't a valid VIN.
      */
     public function __construct(string $value)
     {
-        // The given VIN must be in upper case...
+        // VIN must be in uppercase...
         $value = strtoupper($value);
 
         if (!preg_match(self::REGEX, $value, $match)) {
-            throw new InvalidArgumentException(
-                sprintf('The value "%s" is not a valid VIN', $value)
-            );
+            throw new InvalidArgumentException(sprintf(
+                'The value "%s" is not a valid VIN',
+                $value
+            ));
         }
 
-        // Base values
         $this->vin = $value;
         $this->wmi = $match['wmi'];
         $this->vds = $match['vds'];
         $this->vis = $match['vis'];
 
-        // Parsed values
-        $this->region = $this->determineRegion();
-        $this->country = $this->determineCountry();
-        $this->manufacturer = $this->determineManufacturer();
-        $this->modelYear = $this->determineModelYear();
+        $this->region = $this->determineVehicleRegion();
+        $this->country = $this->determineVehicleCountry();
+        $this->manufacturer = $this->determineVehicleManufacturer();
+        $this->modelYear = $this->determineVehicleModelYear();
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getVin() : string
     {
@@ -135,7 +144,7 @@ class Vin implements VinInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getWmi() : string
     {
@@ -143,7 +152,7 @@ class Vin implements VinInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getVds() : string
     {
@@ -151,7 +160,7 @@ class Vin implements VinInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getVis() : string
     {
@@ -159,7 +168,7 @@ class Vin implements VinInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getRegion() : ?string
     {
@@ -167,7 +176,7 @@ class Vin implements VinInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getCountry() : ?string
     {
@@ -175,7 +184,7 @@ class Vin implements VinInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getManufacturer() : ?string
     {
@@ -183,7 +192,7 @@ class Vin implements VinInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getModelYear() : array
     {
@@ -193,7 +202,16 @@ class Vin implements VinInterface
     /**
      * Converts the object to array
      *
-     * @return array
+     * @return array{
+     *           vin: string,
+     *           wmi: string,
+     *           vds: string,
+     *           vis: string,
+     *           region: ?string,
+     *           country: ?string,
+     *           manufacturer: ?string,
+     *           modelYear: list<int>,
+     *         }
      */
     public function toArray() : array
     {
@@ -210,11 +228,21 @@ class Vin implements VinInterface
     }
 
     /**
+     * Converts the object to string
+     *
+     * @return string
+     */
+    public function __toString() : string
+    {
+        return $this->vin;
+    }
+
+    /**
      * Tries to determine vehicle region
      *
-     * @return null|string
+     * @return string|null
      */
-    private function determineRegion() : ?string
+    private function determineVehicleRegion() : ?string
     {
         return REGIONS[$this->wmi[0]]['region'] ?? null;
     }
@@ -222,17 +250,20 @@ class Vin implements VinInterface
     /**
      * Tries to determine vehicle country
      *
-     * @return null|string
+     * @return string|null
      */
-    private function determineCountry() : ?string
+    private function determineVehicleCountry() : ?string
     {
         $countries = REGIONS[$this->wmi[0]]['countries'] ?? null;
-        if (null === $countries) {
+        if ($countries === null) {
             return null;
         }
 
         foreach ($countries as $chars => $name) {
-            if (!(false === strpbrk($this->wmi[1], (string) $chars))) {
+            // there are keys that consist only of numbers...
+            $chars = (string) $chars;
+
+            if (strpbrk($this->wmi[1], $chars) !== false) {
                 return $name;
             }
         }
@@ -243,9 +274,9 @@ class Vin implements VinInterface
     /**
      * Tries to determine vehicle manufacturer
      *
-     * @return null|string
+     * @return string|null
      */
-    private function determineManufacturer() : ?string
+    private function determineVehicleManufacturer() : ?string
     {
         return MANUFACTURERS[$this->wmi] ?? MANUFACTURERS[$this->wmi[0] . $this->wmi[1]] ?? null;
     }
@@ -253,11 +284,11 @@ class Vin implements VinInterface
     /**
      * Tries to determine vehicle model year(s)
      *
-     * @return int[]
+     * @return list<int>
      */
-    private function determineModelYear() : array
+    private function determineVehicleModelYear() : array
     {
-        $comingYear = (int) date('Y') + 1;
+        $comingYear = date('Y') + 1;
         $estimatedYears = [];
 
         foreach (YEARS as $year => $char) {
