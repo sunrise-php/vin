@@ -1,4 +1,4 @@
-## Simple VIN decoder for PHP 7.1+ (incl. PHP 8) based on ISO-3779
+## Simple VIN decoder for PHP 7.1+ based on ISO-3779
 
 [![Gitter](https://badges.gitter.im/sunrise-php/support.png)](https://gitter.im/sunrise-php/support)
 [![Build Status](https://circleci.com/gh/sunrise-php/vin.svg?style=shield)](https://circleci.com/gh/sunrise-php/vin)
@@ -26,14 +26,20 @@ try {
     // It isn't a valid VIN...
 }
 
-$vin->getVin(); // returns "WVWZZZ1KZ6W612305"
-$vin->getWmi(); // returns "WVW"
-$vin->getVds(); // returns "ZZZ1KZ"
-$vin->getVis(); // returns "6W612305"
-$vin->getRegion(); // returns "Europe"
-$vin->getCountry(); // returns "Germany"
-$vin->getManufacturer(); // returns "Volkswagen"
-$vin->getModelYear(); // returns [2006]
+$vin->getVin(); // "WVWZZZ1KZ6W612305"
+$vin->getWmi(); // "WVW"
+$vin->getVds(); // "ZZZ1KZ"
+$vin->getVis(); // "6W612305"
+$vin->getRegion(); // "Europe"
+$vin->getCountry(); // "Germany"
+$vin->getManufacturer(); // "Volkswagen"
+$vin->getModelYear(); // [2006]
+
+// convert the VIN to a string
+(string) $vin;
+
+// converts the VIN to array
+$vin->toArray();
 ```
 
 ## Useful links
