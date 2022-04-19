@@ -280,4 +280,14 @@ class VinTest extends TestCase
 
         $this->assertSame([2000], $vin->getModelYear());
     }
+
+    /**
+     * @return void
+     */
+    public function testToString() : void
+    {
+        $vin = new Vin(self::TEST_VIN_WITH_FUTURITY_MODEL_YEAR);
+
+        $this->assertSame(self::TEST_VIN_WITH_FUTURITY_MODEL_YEAR, (string) $vin);
+    }
 }
