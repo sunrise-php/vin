@@ -527,4 +527,18 @@ const MANUFACTURERS = [
     'W1N' => 'Mercedes',
     'WAP' => 'BMW',
     'YAR' => 'Toyota',
+
+    /**
+     * @see https://github.com/sunrise-php/vin/issues/76
+     */
+    '7SA' => 'Tesla, Inc.',
+    '7G2' => 'Tesla, Inc.',
+    'LRW' => 'Tesla, Inc.',
+    'XP7' => 'Tesla, Inc.',
+    'SFZ' => 'Tesla, Inc.',
+
+    /**
+     * @see https://github.com/sunrise-php/vin/issues/77
+     */
+    '7JR' => 'Volvo Car Usa, Llc',
 ];
