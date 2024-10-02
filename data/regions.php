@@ -234,12 +234,13 @@ const REGIONS = [
         'region' => 'Oceania',
         'countries' => [
             'ABCDEFGHJKLMNPRSTUVW' => 'Australia',
+            'YZ1' => 'New Zealand',
         ],
     ],
     '7' => [
-        'region' => 'Oceania',
+        'region' => 'North America',
         'countries' => [
-            'ABCDE' => 'New Zealand',
+            'ABCDEFGHJKLMNPRSTUVWXYZ1234567890' => 'United States',
         ],
     ],
     '8' => [
